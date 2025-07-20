@@ -1,0 +1,247 @@
+/* ====== Base Styles ====== */
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(120deg, #f7fafc 60%, #e0e7ff 100%);
+    min-height: 100vh;
+    color: #22223B;
+    transition: background 0.6s;
+}
+a {
+    text-decoration: none;
+    transition: color 0.2s;
+}
+a:focus, button:focus, input:focus, select:focus, textarea:focus {
+    outline: 2px solid #6366f1;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px #ede9fe;
+}
+
+/* ====== Custom Scrollbar ======= */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #ececec;
+    border-radius: 12px;
+}
+::-webkit-scrollbar-thumb {
+    background: #a0aec0;
+    border-radius: 12px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #6366f1;
+}
+
+/* ====== Card Elevation on Hover ====== */
+.card, .gallery-item, .race-card, .city-card {
+    box-shadow: 0 2px 8px -2px rgba(60, 72, 88, 0.14);
+    transition: box-shadow 0.3s, transform 0.25s;
+}
+.card:hover, .gallery-item:hover, .race-card:hover, .city-card:hover {
+    box-shadow: 0 8px 24px -6px rgba(99, 102, 241, 0.20), 0 1.5px 7px -2px #6366f145;
+    transform: translateY(-6px) scale(1.025);
+}
+
+/* ====== Interactive Buttons & Links ====== */
+button, .btn, .inline-btn {
+    background: linear-gradient(90deg, #6366f1 50%, #a78bfa 100%);
+    color: #fff !important;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    border: none;
+    cursor: pointer;
+    transition: background 0.25s, transform 0.18s, box-shadow 0.18s;
+    box-shadow: 0 2px 6px -2px #4f46e53b;
+}
+button:hover, .btn:hover, .inline-btn:hover {
+    background: linear-gradient(90deg, #a78bfa 30%, #6366f1 100%);
+    color: #fff;
+    transform: scale(1.04) translateY(-2px);
+    box-shadow: 0 4px 18px -4px #6366f199;
+}
+button:active {
+    transform: scale(0.97);
+}
+
+/* ====== Forms ====== */
+input, select, textarea {
+    border: 1px solid #cbd5e1;
+    background: #f9fafb;
+    border-radius: 0.4rem;
+    font-size: 1rem;
+    padding: 0.5rem 0.8rem;
+    margin-top: 4px;
+    margin-bottom: 8px;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+input:focus, select:focus, textarea:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 2px #6366f166;
+    background: #fff;
+}
+label {
+    font-weight: 500;
+    color: #4b5563;
+    margin-bottom: 2px;
+}
+
+form {
+    margin-top: 8px;
+    margin-bottom: 0;
+}
+
+/* ====== Animated Message Boxes ====== */
+#messageBox, .alert {
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 0.6rem;
+    transition: background 0.25s, color 0.25s, box-shadow 0.2s;
+    margin-top: 10px;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 3px 16px -7px #22223b22;
+}
+.bg-green-100 { background: #dcfce7; color: #166534 !important; }
+.bg-red-100 { background: #fee2e2; color: #991b1b !important; }
+.bg-yellow-100 { background: #fef9c3; color: #ca8a04 !important; }
+.bg-indigo-100 { background: #e0e7ff; color: #3730a3 !important; }
+
+/* ====== Gallery Enhancements ====== */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    background: #e9ecef;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.3s, transform 0.25s;
+}
+.gallery-item img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 0.75rem 0.75rem 0 0;
+    transition: opacity 0.26s;
+}
+
+.gallery-item-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(38, 33, 70, 0.80);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.32s;
+    border-radius: 0.75rem;
+    text-align: center;
+    padding: 1.5rem;
+}
+.gallery-item:hover .gallery-item-overlay, .gallery-item:focus .gallery-item-overlay {
+    opacity: 1;
+}
+.gallery-item-overlay .player-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.02em;
+}
+.gallery-item-overlay p {
+    font-size: 1rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+    opacity: 0.95;
+}
+.gallery-item-overlay span {
+    font-size: 0.89rem;
+    color: #c7d2fe;
+}
+
+/* ====== Header and Footer ====== */
+header {
+    box-shadow: 0 4px 14px -6px #b3b6d0;
+    background: #fff;
+    border-bottom-left-radius: 1.1rem;
+    border-bottom-right-radius: 1.1rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+footer {
+    box-shadow: 0 -3px 10px -4px #b3b6d0;
+    border-top-left-radius: 1.1rem;
+    border-top-right-radius: 1.1rem;
+    background: linear-gradient(90deg, #4f46e5 45%, #818cf8 100%);
+    color: #fff;
+}
+footer p, footer a {
+    color: #eee !important;
+    font-weight: 500;
+}
+footer a:hover {
+    color: #fff;
+    text-decoration: underline;
+    filter: brightness(120%);
+}
+
+/* ====== Section Animation on View (for .section-animate class) ====== */
+.section-animate {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: opacity 0.8s cubic-bezier(.25,.6,.45,1.1), transform 0.7s cubic-bezier(.16,.97,.36,1.09);
+}
+.section-animate.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ====== Utility Styles & Responsive ====== */
+@media (max-width: 700px) {
+    .gallery-item img { height: 160px; }
+    .gallery-item-overlay { padding: 1rem; }
+    header, footer { border-radius: 0; }
+    body { padding: 0 !important; }
+}
+
+/* ====== Extra: Nice Table Styles ====== */
+table {
+    border-collapse: separate; border-spacing: 0;
+    width: 100%; background: #fff; border-radius: 0.8rem;
+    overflow: hidden; box-shadow: 0 3px 12px -4px #dbeafe60;
+}
+th, td {
+    font-size: 1rem; padding: 1.0rem; text-align: left;
+}
+th { background: #dbeafe; color: #3730a3; font-weight: 600; }
+tr:nth-child(even) { background: #f3f4f6; }
+tr:hover { background: #e0e7ff; }
+
+/* ====== Badge Styles (for categories, etc.) ====== */
+.badge {
+    display: inline-block;
+    padding: 0.18em 0.8em;
+    font-size: 0.95em;
+    font-weight: 700;
+    border-radius: 0.5rem;
+    background: #e0e7ff;
+    color: #3b3663;
+    margin: 0 0.2em;
+}
+
+/* ====== Animated Loader Spinner (Optional) ====== */
+.loader {
+    border: 3px solid #e0e7ff;
+    border-top: 3px solid #8b5cf6;
+    border-radius: 50%;
+    width: 26px; height: 26px;
+    animation: spin 0.7s linear infinite;
+    display: inline-block;
+    margin: 0 auto;
+}
+@keyframes spin {
+    0%   { transform: rotate(0deg);}
+    100% { transform: rotate(360deg);}
+}
