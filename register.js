@@ -60,10 +60,26 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      showMessage("Registration successful!", "bg-green-100 text-green-700");
-      
-  });
+    e.preventDefault();
+    const formData = new FormData(form);
+
+    fetch("register.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(res => res.text())
+    .then(res => {
+        if (res.trim() === "success") {
+            showMessage("Registration successful!", "bg-green-100 text-green-700");
+            form.reset();
+            currentStep = 0;
+            showStep(currentStep);
+        } else {
+            showMessage("Registration failed.", "bg-red-100 text-red-700");
+        }
+    });
+});
+
 
   function showMessage(message, classes) {
       messageBox.textContent = message;
